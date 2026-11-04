@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>USA National Parks Explorer — All 63 Parks</title>
+<meta name="description" content="A one-page guide to all 63 U.S. national parks, searchable by state, with official NPS links.">
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:1000px;margin:0 auto;padding:20px;line-height:1.6;color:#1f2937}
+header{text-align:center} .controls{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0} input,select{flex:1;min-width:200px;padding:10px;font-size:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px} .card{border:1px solid #d1d5db;border-radius:12px;padding:16px} .card h2{margin-top:0;font-size:19px} .meta{color:#4b5563}
+.ad-slot{border:2px dashed #9ca3af;background:#f9fafb;text-align:center;padding:24px;margin:24px 0;color:#6b7280} footer{margin-top:40px;border-top:1px solid #d1d5db;padding-top:20px} a{color:#065f46}
+</style>
+</head>
+<body>
+<header>
+<h1>USA National Parks Explorer</h1>
+<p>All 63 U.S. national parks on one page. Search by park name or filter by state, then follow the official link for current fees, hours, and alerts — fees and hours change, so this page does not list specific dollar amounts or opening times.</p>
+</header>
+<!-- Ad slot 1 (top) — AdSense placeholder. Requires a Travis-owned domain, ads.txt, and a real AdSense review before ads can show. -->
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3925142139946212" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>Advertisement placeholder</div>
+<div class="controls">
+<input id="search" type="search" placeholder="Search a park, e.g. Yellowstone" aria-label="Search parks">
+<select id="state" aria-label="Filter by state"><option value="">All states / territories</option><option value="alaska">Alaska</option><option value="american samoa">American Samoa</option><option value="arizona">Arizona</option><option value="arkansas">Arkansas</option><option value="california">California</option><option value="colorado">Colorado</option><option value="florida">Florida</option><option value="hawaii">Hawaii</option><option value="idaho">Idaho</option><option value="indiana">Indiana</option><option value="kentucky">Kentucky</option><option value="maine">Maine</option><option value="michigan">Michigan</option><option value="minnesota">Minnesota</option><option value="missouri">Missouri</option><option value="montana">Montana</option><option value="nevada">Nevada</option><option value="new mexico">New Mexico</option><option value="north carolina">North Carolina</option><option value="north dakota">North Dakota</option><option value="ohio">Ohio</option><option value="oregon">Oregon</option><option value="south carolina">South Carolina</option><option value="south dakota">South Dakota</option><option value="tennessee">Tennessee</option><option value="texas">Texas</option><option value="u.s. virgin islands">U.S. Virgin Islands</option><option value="utah">Utah</option><option value="virginia">Virginia</option><option value="washington">Washington</option><option value="west virginia">West Virginia</option><option value="wyoming">Wyoming</option></select>
+<button onclick="document.getElementById('search').value='';document.getElementById('state').value='';filterParks()">Clear</button>
+</div>
+<p id="count"></p>
+<div class="grid" id="grid">
+<article class="card" data-name="acadia" data-state="maine">
+<h2>1. Acadia</h2>
+<p class="meta"><strong>State(s):</strong> Maine &nbsp;|&nbsp; <strong>Best season:</strong> Late spring to fall</p>
+<p>Rocky coastline, granite peaks, and carriage roads on Maine&#x27;s Atlantic shore.</p>
+<p><a href="https://www.nps.gov/acad/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="american samoa" data-state="american samoa">
+<h2>2. American Samoa</h2>
+<p class="meta"><strong>State(s):</strong> American Samoa &nbsp;|&nbsp; <strong>Best season:</strong> Year-round, drier months are best</p>
+<p>Tropical rainforest, coral reefs, and Samoan village culture in the South Pacific.</p>
+<p><a href="https://www.nps.gov/npsa/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="arches" data-state="utah">
+<h2>3. Arches</h2>
+<p class="meta"><strong>State(s):</strong> Utah &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>More than two thousand natural stone arches and red-rock fins in Utah&#x27;s high desert.</p>
+<p><a href="https://www.nps.gov/arch/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="badlands" data-state="south dakota">
+<h2>4. Badlands</h2>
+<p class="meta"><strong>State(s):</strong> South Dakota &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>Sharp, striped pinnacles and prairie grasslands shaped by erosion.</p>
+<p><a href="https://www.nps.gov/badl/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="big bend" data-state="texas">
+<h2>5. Big Bend</h2>
+<p class="meta"><strong>State(s):</strong> Texas &nbsp;|&nbsp; <strong>Best season:</strong> Fall to spring</p>
+<p>Desert mountains and deep river canyons along a remote bend of the Rio Grande.</p>
+<p><a href="https://www.nps.gov/bibe/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="biscayne" data-state="florida">
+<h2>6. Biscayne</h2>
+<p class="meta"><strong>State(s):</strong> Florida &nbsp;|&nbsp; <strong>Best season:</strong> Winter and spring</p>
+<p>Mostly underwater: coral reefs, mangrove shores, and small islands off Miami.</p>
+<p><a href="https://www.nps.gov/bisc/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="black canyon of the gunnison" data-state="colorado">
+<h2>7. Black Canyon of the Gunnison</h2>
+<p class="meta"><strong>State(s):</strong> Colorado &nbsp;|&nbsp; <strong>Best season:</strong> Late spring to fall</p>
+<p>A steep, narrow canyon carved by the Gunnison River, with dramatic dark walls.</p>
+<p><a href="https://www.nps.gov/blca/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="bryce canyon" data-state="utah">
+<h2>8. Bryce Canyon</h2>
+<p class="meta"><strong>State(s):</strong> Utah &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>A natural amphitheater crowded with tall, orange hoodoos and viewpoints along the rim.</p>
+<p><a href="https://www.nps.gov/brca/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="canyonlands" data-state="utah">
+<h2>9. Canyonlands</h2>
+<p class="meta"><strong>State(s):</strong> Utah &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>A vast maze of mesas, buttes, and river canyons split into four districts.</p>
+<p><a href="https://www.nps.gov/cany/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="capitol reef" data-state="utah">
+<h2>10. Capitol Reef</h2>
+<p class="meta"><strong>State(s):</strong> Utah &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>A long wrinkle of rock, cliffs, and orchards in Utah&#x27;s red-rock country.</p>
+<p><a href="https://www.nps.gov/care/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="carlsbad caverns" data-state="new mexico">
+<h2>11. Carlsbad Caverns</h2>
+<p class="meta"><strong>State(s):</strong> New Mexico &nbsp;|&nbsp; <strong>Best season:</strong> Year-round</p>
+<p>Huge underground chambers, stalactites, and a nightly bat flight in season.</p>
+<p><a href="https://www.nps.gov/cave/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="channel islands" data-state="california">
+<h2>12. Channel Islands</h2>
+<p class="meta"><strong>State(s):</strong> California &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>Five islands off Southern California with sea caves, kelp forests, and island wildlife.</p>
+<p><a href="https://www.nps.gov/chis/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="congaree" data-state="south carolina">
+<h2>13. Congaree</h2>
+<p class="meta"><strong>State(s):</strong> South Carolina &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>Old-growth bottomland forest and slow, dark-water creeks in the Southeast.</p>
+<p><a href="https://www.nps.gov/cong/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="crater lake" data-state="oregon">
+<h2>14. Crater Lake</h2>
+<p class="meta"><strong>State(s):</strong> Oregon &nbsp;|&nbsp; <strong>Best season:</strong> Summer and early fall</p>
+<p>The deepest lake in the United States, filling the caldera of a collapsed volcano.</p>
+<p><a href="https://www.nps.gov/crla/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="cuyahoga valley" data-state="ohio">
+<h2>15. Cuyahoga Valley</h2>
+<p class="meta"><strong>State(s):</strong> Ohio &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>A river valley of waterfalls, forests, and historic canal towpath between Cleveland and Akron.</p>
+<p><a href="https://www.nps.gov/cuva/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="death valley" data-state="california, nevada">
+<h2>16. Death Valley</h2>
+<p class="meta"><strong>State(s):</strong> California, Nevada &nbsp;|&nbsp; <strong>Best season:</strong> Fall to spring</p>
+<p>The hottest, driest, and lowest place in North America, with salt flats and desert mountains.</p>
+<p><a href="https://www.nps.gov/deva/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="denali" data-state="alaska">
+<h2>17. Denali</h2>
+<p class="meta"><strong>State(s):</strong> Alaska &nbsp;|&nbsp; <strong>Best season:</strong> Summer</p>
+<p>Home to North America&#x27;s tallest peak, vast tundra, and wildlife in interior Alaska.</p>
+<p><a href="https://www.nps.gov/dena/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="dry tortugas" data-state="florida">
+<h2>18. Dry Tortugas</h2>
+<p class="meta"><strong>State(s):</strong> Florida &nbsp;|&nbsp; <strong>Best season:</strong> Winter and spring</p>
+<p>A remote island fort, clear water, and coral reefs about seventy miles west of Key West.</p>
+<p><a href="https://www.nps.gov/drto/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="everglades" data-state="florida">
+<h2>19. Everglades</h2>
+<p class="meta"><strong>State(s):</strong> Florida &nbsp;|&nbsp; <strong>Best season:</strong> Winter</p>
+<p>A slow-moving river of grass, sawgrass marshes, and wildlife in South Florida.</p>
+<p><a href="https://www.nps.gov/ever/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="gates of the arctic" data-state="alaska">
+<h2>20. Gates of the Arctic</h2>
+<p class="meta"><strong>State(s):</strong> Alaska &nbsp;|&nbsp; <strong>Best season:</strong> Summer</p>
+<p>A roadless Arctic wilderness of mountains, valleys, and wild rivers above the Arctic Circle.</p>
+<p><a href="https://www.nps.gov/gaar/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="gateway arch" data-state="missouri">
+<h2>21. Gateway Arch</h2>
+<p class="meta"><strong>State(s):</strong> Missouri &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>The 630-foot arch and riverfront museum marking westward expansion in St. Louis.</p>
+<p><a href="https://www.nps.gov/jeff/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="glacier" data-state="montana">
+<h2>22. Glacier</h2>
+<p class="meta"><strong>State(s):</strong> Montana &nbsp;|&nbsp; <strong>Best season:</strong> Summer</p>
+<p>Glacial valleys, alpine lakes, and the Going-to-the-Sun Road in the northern Rockies.</p>
+<p><a href="https://www.nps.gov/glac/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="glacier bay" data-state="alaska">
+<h2>23. Glacier Bay</h2>
+<p class="meta"><strong>State(s):</strong> Alaska &nbsp;|&nbsp; <strong>Best season:</strong> Summer</p>
+<p>Tidewater glaciers, fjords, and rainforest in a remote Southeast Alaska bay.</p>
+<p><a href="https://www.nps.gov/glba/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="grand canyon" data-state="arizona">
+<h2>24. Grand Canyon</h2>
+<p class="meta"><strong>State(s):</strong> Arizona &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>A mile-deep canyon carved by the Colorado River, with rim trails and river trips.</p>
+<p><a href="https://www.nps.gov/grca/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="grand teton" data-state="wyoming">
+<h2>25. Grand Teton</h2>
+<p class="meta"><strong>State(s):</strong> Wyoming &nbsp;|&nbsp; <strong>Best season:</strong> Summer and fall</p>
+<p>Sharp granite peaks rising above lakes and sagebrush valleys near Jackson Hole.</p>
+<p><a href="https://www.nps.gov/grte/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="great basin" data-state="nevada">
+<h2>26. Great Basin</h2>
+<p class="meta"><strong>State(s):</strong> Nevada &nbsp;|&nbsp; <strong>Best season:</strong> Summer and fall</p>
+<p>Desert valleys, bristlecone pines, and Lehman Caves beneath Wheeler Peak.</p>
+<p><a href="https://www.nps.gov/grba/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="great sand dunes" data-state="colorado">
+<h2>27. Great Sand Dunes</h2>
+<p class="meta"><strong>State(s):</strong> Colorado &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>The tallest sand dunes in North America, backed by the Sangre de Cristo Mountains.</p>
+<p><a href="https://www.nps.gov/grsa/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="great smoky mountains" data-state="north carolina, tennessee">
+<h2>28. Great Smoky Mountains</h2>
+<p class="meta"><strong>State(s):</strong> North Carolina, Tennessee &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>Mist-covered forests, historic cabins, and the most visited park in the system.</p>
+<p><a href="https://www.nps.gov/grsm/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="guadalupe mountains" data-state="texas">
+<h2>29. Guadalupe Mountains</h2>
+<p class="meta"><strong>State(s):</strong> Texas &nbsp;|&nbsp; <strong>Best season:</strong> Fall and spring</p>
+<p>Desert peaks and canyons in West Texas, including the state&#x27;s highest point.</p>
+<p><a href="https://www.nps.gov/gumo/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="haleakala" data-state="hawaii">
+<h2>30. Haleakala</h2>
+<p class="meta"><strong>State(s):</strong> Hawaii &nbsp;|&nbsp; <strong>Best season:</strong> Year-round</p>
+<p>A huge volcanic crater, sunrise viewpoints, and bamboo forest on Maui.</p>
+<p><a href="https://www.nps.gov/hale/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="hawaii volcanoes" data-state="hawaii">
+<h2>31. Hawaii Volcanoes</h2>
+<p class="meta"><strong>State(s):</strong> Hawaii &nbsp;|&nbsp; <strong>Best season:</strong> Year-round</p>
+<p>Active volcanoes, lava landscapes, and rainforest on the Big Island of Hawaii.</p>
+<p><a href="https://www.nps.gov/havo/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="hot springs" data-state="arkansas">
+<h2>32. Hot Springs</h2>
+<p class="meta"><strong>State(s):</strong> Arkansas &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>Historic bathhouses and thermal springs in a small city park in the Ouachita Mountains.</p>
+<p><a href="https://www.nps.gov/hosp/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="indiana dunes" data-state="indiana">
+<h2>33. Indiana Dunes</h2>
+<p class="meta"><strong>State(s):</strong> Indiana &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>Lake Michigan beaches, dunes, wetlands, and prairie along Indiana&#x27;s shoreline.</p>
+<p><a href="https://www.nps.gov/indu/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="isle royale" data-state="michigan">
+<h2>34. Isle Royale</h2>
+<p class="meta"><strong>State(s):</strong> Michigan &nbsp;|&nbsp; <strong>Best season:</strong> Summer</p>
+<p>A remote island wilderness in Lake Superior, reached only by boat or seaplane.</p>
+<p><a href="https://www.nps.gov/isro/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="joshua tree" data-state="california">
+<h2>35. Joshua Tree</h2>
+<p class="meta"><strong>State(s):</strong> California &nbsp;|&nbsp; <strong>Best season:</strong> Fall to spring</p>
+<p>Two deserts meeting among Joshua trees, boulders, and dark night skies.</p>
+<p><a href="https://www.nps.gov/jotr/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="katmai" data-state="alaska">
+<h2>36. Katmai</h2>
+<p class="meta"><strong>State(s):</strong> Alaska &nbsp;|&nbsp; <strong>Best season:</strong> Summer</p>
+<p>Volcanic valleys and brown bears fishing for salmon at Brooks Falls.</p>
+<p><a href="https://www.nps.gov/katm/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="kenai fjords" data-state="alaska">
+<h2>37. Kenai Fjords</h2>
+<p class="meta"><strong>State(s):</strong> Alaska &nbsp;|&nbsp; <strong>Best season:</strong> Summer</p>
+<p>Glaciers calving into fjords, plus sea kayaking and marine wildlife near Seward.</p>
+<p><a href="https://www.nps.gov/kefj/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="kings canyon" data-state="california">
+<h2>38. Kings Canyon</h2>
+<p class="meta"><strong>State(s):</strong> California &nbsp;|&nbsp; <strong>Best season:</strong> Summer and fall</p>
+<p>Deep canyons, giant sequoias, and high Sierra backcountry east of Fresno.</p>
+<p><a href="https://www.nps.gov/kica/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="kobuk valley" data-state="alaska">
+<h2>39. Kobuk Valley</h2>
+<p class="meta"><strong>State(s):</strong> Alaska &nbsp;|&nbsp; <strong>Best season:</strong> Summer</p>
+<p>Arctic sand dunes and caribou migration routes in a remote, roadless valley.</p>
+<p><a href="https://www.nps.gov/kova/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="lake clark" data-state="alaska">
+<h2>40. Lake Clark</h2>
+<p class="meta"><strong>State(s):</strong> Alaska &nbsp;|&nbsp; <strong>Best season:</strong> Summer</p>
+<p>Volcanoes, turquoise lakes, and wild coastline in Southwest Alaska.</p>
+<p><a href="https://www.nps.gov/lacl/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="lassen volcanic" data-state="california">
+<h2>41. Lassen Volcanic</h2>
+<p class="meta"><strong>State(s):</strong> California &nbsp;|&nbsp; <strong>Best season:</strong> Summer and fall</p>
+<p>Hydrothermal features, a plug-dome volcano, and lakes in the southern Cascades.</p>
+<p><a href="https://www.nps.gov/lavo/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="mammoth cave" data-state="kentucky">
+<h2>42. Mammoth Cave</h2>
+<p class="meta"><strong>State(s):</strong> Kentucky &nbsp;|&nbsp; <strong>Best season:</strong> Year-round</p>
+<p>The world&#x27;s longest known cave system, with tours from easy walks to wild crawls.</p>
+<p><a href="https://www.nps.gov/maca/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="mesa verde" data-state="colorado">
+<h2>43. Mesa Verde</h2>
+<p class="meta"><strong>State(s):</strong> Colorado &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>Remarkably preserved Ancestral Puebloan cliff dwellings in sandstone alcoves.</p>
+<p><a href="https://www.nps.gov/meve/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="mount rainier" data-state="washington">
+<h2>44. Mount Rainier</h2>
+<p class="meta"><strong>State(s):</strong> Washington &nbsp;|&nbsp; <strong>Best season:</strong> Summer</p>
+<p>A glaciated volcano rising above wildflower meadows and old-growth forest near Seattle.</p>
+<p><a href="https://www.nps.gov/mora/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="new river gorge" data-state="west virginia">
+<h2>45. New River Gorge</h2>
+<p class="meta"><strong>State(s):</strong> West Virginia &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>Whitewater rapids, sandstone cliffs, and the New River Gorge Bridge.</p>
+<p><a href="https://www.nps.gov/neri/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="north cascades" data-state="washington">
+<h2>46. North Cascades</h2>
+<p class="meta"><strong>State(s):</strong> Washington &nbsp;|&nbsp; <strong>Best season:</strong> Summer</p>
+<p>Jagged peaks, glaciers, and alpine lakes in Washington&#x27;s rugged northern mountains.</p>
+<p><a href="https://www.nps.gov/noca/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="olympic" data-state="washington">
+<h2>47. Olympic</h2>
+<p class="meta"><strong>State(s):</strong> Washington &nbsp;|&nbsp; <strong>Best season:</strong> Summer and fall</p>
+<p>Rainforest valleys, alpine peaks, and wild Pacific beaches on the Olympic Peninsula.</p>
+<p><a href="https://www.nps.gov/olym/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="petrified forest" data-state="arizona">
+<h2>48. Petrified Forest</h2>
+<p class="meta"><strong>State(s):</strong> Arizona &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>Ancient fossilized trees, painted desert badlands, and historic Route 66 traces.</p>
+<p><a href="https://www.nps.gov/pefo/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="pinnacles" data-state="california">
+<h2>49. Pinnacles</h2>
+<p class="meta"><strong>State(s):</strong> California &nbsp;|&nbsp; <strong>Best season:</strong> Fall to spring</p>
+<p>Volcanic spires, talus caves, and condors in the hills east of the Salinas Valley.</p>
+<p><a href="https://www.nps.gov/pinn/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="redwood" data-state="california">
+<h2>50. Redwood</h2>
+<p class="meta"><strong>State(s):</strong> California &nbsp;|&nbsp; <strong>Best season:</strong> Year-round</p>
+<p>Towering old-growth redwoods, fern-filled canyons, and foggy northern California coast.</p>
+<p><a href="https://www.nps.gov/redw/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="rocky mountain" data-state="colorado">
+<h2>51. Rocky Mountain</h2>
+<p class="meta"><strong>State(s):</strong> Colorado &nbsp;|&nbsp; <strong>Best season:</strong> Summer and fall</p>
+<p>High alpine lakes, tundra, and elk along Trail Ridge Road in the Colorado Rockies.</p>
+<p><a href="https://www.nps.gov/romo/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="saguaro" data-state="arizona">
+<h2>52. Saguaro</h2>
+<p class="meta"><strong>State(s):</strong> Arizona &nbsp;|&nbsp; <strong>Best season:</strong> Fall to spring</p>
+<p>Giant saguaro cacti and desert mountains on both sides of Tucson.</p>
+<p><a href="https://www.nps.gov/sagu/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="sequoia" data-state="california">
+<h2>53. Sequoia</h2>
+<p class="meta"><strong>State(s):</strong> California &nbsp;|&nbsp; <strong>Best season:</strong> Summer and fall</p>
+<p>Giant sequoia groves, including the General Sherman Tree, and high Sierra peaks.</p>
+<p><a href="https://www.nps.gov/sequ/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="shenandoah" data-state="virginia">
+<h2>54. Shenandoah</h2>
+<p class="meta"><strong>State(s):</strong> Virginia &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>Skyline Drive, Blue Ridge viewpoints, and waterfalls near Washington, D.C.</p>
+<p><a href="https://www.nps.gov/shen/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="theodore roosevelt" data-state="north dakota">
+<h2>55. Theodore Roosevelt</h2>
+<p class="meta"><strong>State(s):</strong> North Dakota &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>Badlands, bison, and prairie where Theodore Roosevelt once ranched.</p>
+<p><a href="https://www.nps.gov/thro/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="virgin islands" data-state="u.s. virgin islands">
+<h2>56. Virgin Islands</h2>
+<p class="meta"><strong>State(s):</strong> U.S. Virgin Islands &nbsp;|&nbsp; <strong>Best season:</strong> Winter and spring</p>
+<p>White-sand beaches, coral reefs, and historic sugar plantations on St. John.</p>
+<p><a href="https://www.nps.gov/viis/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="voyageurs" data-state="minnesota">
+<h2>57. Voyageurs</h2>
+<p class="meta"><strong>State(s):</strong> Minnesota &nbsp;|&nbsp; <strong>Best season:</strong> Summer and fall</p>
+<p>A water-based park of lakes, islands, and forests on the Canadian border.</p>
+<p><a href="https://www.nps.gov/voya/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="white sands" data-state="new mexico">
+<h2>58. White Sands</h2>
+<p class="meta"><strong>State(s):</strong> New Mexico &nbsp;|&nbsp; <strong>Best season:</strong> Fall to spring</p>
+<p>The world&#x27;s largest gypsum dune field, gleaming white under desert sun.</p>
+<p><a href="https://www.nps.gov/whsa/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="wind cave" data-state="south dakota">
+<h2>59. Wind Cave</h2>
+<p class="meta"><strong>State(s):</strong> South Dakota &nbsp;|&nbsp; <strong>Best season:</strong> Year-round</p>
+<p>One of the world&#x27;s longest caves, known for rare boxwork, above rolling prairie.</p>
+<p><a href="https://www.nps.gov/wica/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="wrangell-st. elias" data-state="alaska">
+<h2>60. Wrangell-St. Elias</h2>
+<p class="meta"><strong>State(s):</strong> Alaska &nbsp;|&nbsp; <strong>Best season:</strong> Summer</p>
+<p>America&#x27;s largest national park, with huge glaciers and mountain ranges in Alaska.</p>
+<p><a href="https://www.nps.gov/wrst/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="yellowstone" data-state="wyoming, montana, idaho">
+<h2>61. Yellowstone</h2>
+<p class="meta"><strong>State(s):</strong> Wyoming, Montana, Idaho &nbsp;|&nbsp; <strong>Best season:</strong> Summer and fall</p>
+<p>The world&#x27;s first national park: geysers, hot springs, canyons, and abundant wildlife.</p>
+<p><a href="https://www.nps.gov/yell/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="yosemite" data-state="california">
+<h2>62. Yosemite</h2>
+<p class="meta"><strong>State(s):</strong> California &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>Granite cliffs, waterfalls, and giant sequoias in the Sierra Nevada.</p>
+<p><a href="https://www.nps.gov/yose/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+<article class="card" data-name="zion" data-state="utah">
+<h2>63. Zion</h2>
+<p class="meta"><strong>State(s):</strong> Utah &nbsp;|&nbsp; <strong>Best season:</strong> Spring and fall</p>
+<p>Towering sandstone cliffs, the Virgin River Narrows, and desert canyon trails.</p>
+<p><a href="https://www.nps.gov/zion/index.htm" target="_blank" rel="noopener">Official NPS page &rarr;</a> &nbsp; <small>Check the official page for current fees, hours, and alerts.</small></p>
+</article>
+
+</div>
+<!-- Ad slot 2 (middle) — AdSense placeholder. -->
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3925142139946212" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>Advertisement placeholder</div>
+<section id="about"><h2>About</h2><p>USA National Parks Explorer is a simple, evergreen directory of all 63 U.S. national parks. Descriptions are short, original summaries written for planning — they are not copied from the National Park Service. For fees, hours, road closures, permits, and safety alerts, always check the official NPS page linked for each park. This site is not affiliated with the National Park Service.</p></section>
+<section id="privacy"><h2>Privacy Policy</h2><p>This page does not collect names, email addresses, or payment information. It does not set its own tracking cookies. If advertising is added later, third-party advertising partners may use cookies as described in their own policies; this section will be updated before any ads are enabled. Contact for questions about this page: see the site owner information on the hosting account.</p></section>
+<!-- Ad slot 3 (bottom) — AdSense placeholder. -->
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3925142139946212" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>Advertisement placeholder</div>
+<footer><p><a href="#about">About</a> | <a href="#privacy">Privacy Policy</a></p><p>63 parks listed. Links go to nps.gov official park pages.</p></footer>
+<script>
+function filterParks(){
+  const q=document.getElementById('search').value.toLowerCase();
+  const st=document.getElementById('state').value;
+  let n=0;
+  document.querySelectorAll('.card').forEach(c=>{
+    const ok=( !q || c.dataset.name.includes(q) || c.dataset.state.includes(q) ) && ( !st || c.dataset.state.includes(st) );
+    c.style.display=ok?'':'none'; if(ok) n++;
+  });
+  document.getElementById('count').textContent=n+' park(s) shown';
+}
+document.getElementById('search').addEventListener('input',filterParks);
+document.getElementById('state').addEventListener('change',filterParks);
+filterParks();
+</script>
+</body>
+</html>
